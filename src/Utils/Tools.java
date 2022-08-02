@@ -13,10 +13,10 @@ public class Tools {
             Assert.assertEquals(menuExpectedList.get(i),menuActualList.get(i).getText(),"Karşılaştırma Sonucu");
         }
     }
-    public static void successMessageValidation (){
-        WebElement updateMsg=GenelWebDriver.driver.findElement(By.xpath("//*[text()=' Success: Your newsletter subscription has been successfully updated!']"));
+    public static void successMessageValidation(){
+        WebElement msg=GenelWebDriver.driver.findElement(By.cssSelector("[class='alert alert-success alert-dismissible']"));
+        Assert.assertTrue(msg.getText().contains("Success"));
 
-        Assert.assertTrue(updateMsg.getText().contains("Success"));
     }
 
 

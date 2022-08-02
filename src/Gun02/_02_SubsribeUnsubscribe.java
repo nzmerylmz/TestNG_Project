@@ -7,6 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+// Senaryo
+//         1- Siteyi açınız.
+//         2- Newsletter  Subscribe ve UnSubscribe işlemlerini ayrı ayı testlerde yapınız.
+//         3- Newsletter  üyelik işlemini, üye ise , üyelikten çıkma, değilse ekleme şeklinde yapınız
 public class _02_SubsribeUnsubscribe extends GenelWebDriver {
 
     @Test (priority = 1)
