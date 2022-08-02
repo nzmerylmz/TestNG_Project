@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class _02_SubsribeUnsubscribe extends GenelWebDriver {
-    
+
     @Test (priority = 1)
     void subscribeTest(){
         WebElement newsletter=driver.findElement(By.cssSelector("[id='content'] :nth-child(8) a"));
@@ -34,5 +34,23 @@ public class _02_SubsribeUnsubscribe extends GenelWebDriver {
         continueBtn.click();
 
         Tools.successMessageValidation();
+    }
+    @Test (priority = 3)
+    void subscribeControl(){
+        WebElement newsletter=driver.findElement(By.cssSelector("[id='content'] :nth-child(8) a"));
+        newsletter.click();
+
+        WebElement radioYes= driver.findElement(By.cssSelector("[type='radio'][value='1']"));
+        WebElement radioNo= driver.findElement(By.cssSelector("[type='radio'][value='0']"));
+        WebElement continueBtn=driver.findElement(By.cssSelector("[class='btn btn-primary']"));
+        if (radioYes.isSelected()){
+            radioNo.click();
+            continueBtn.click();
+            Tools.successMessageValidation();
+        } else {
+            radioYes.click();
+            continueBtn.click();
+            Tools.successMessageValidation();
+        }
     }
 }
