@@ -18,45 +18,26 @@ import org.testng.annotations.Test;
      */
 public class _03_EditAccount extends GenelWebDriver {
 
-    @Test (priority = 1)
-    void EditAccount1(){
-        WebElement editAccount= driver.findElement(By.linkText("Edit Account"));
-        editAccount.click();
-
-        WebElement firstname=driver.findElement(By.id("input-firstname"));
-        firstname.clear();
-        firstname.sendKeys("adinnew");
-
-        WebElement lastname=driver.findElement(By.id("input-lastname"));
-        lastname.clear();
-        lastname.sendKeys("soyadinnew");
-
-        WebElement continueBtn=driver.findElement(By.cssSelector("[class='btn btn-primary']"));
-        continueBtn.click();
-
-        WebElement updateMsg=GenelWebDriver.driver.findElement(By.xpath("//*[text()=' Success: Your account has been successfully updated.']"));
-
-        Assert.assertTrue(updateMsg.getText().contains("Success"));
+    @Test
+    void EditAccount(){
+        editAccount("adinnew","soyadinnew");
+        editAccount("adin","soyadin");
     }
-    @Test (priority = 2)
-    void EditAccount2(){
-        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Edit Account")));
+    void editAccount(String ad, String soyad){
         WebElement editAccount= driver.findElement(By.linkText("Edit Account"));
         editAccount.click();
 
         WebElement firstname=driver.findElement(By.id("input-firstname"));
         firstname.clear();
-        firstname.sendKeys("adin");
+        firstname.sendKeys(ad);
 
         WebElement lastname=driver.findElement(By.id("input-lastname"));
         lastname.clear();
-        lastname.sendKeys("soyadin");
+        lastname.sendKeys(soyad);
 
         WebElement continueBtn=driver.findElement(By.cssSelector("[class='btn btn-primary']"));
         continueBtn.click();
 
-        WebElement updateMsg=GenelWebDriver.driver.findElement(By.xpath("//*[text()=' Success: Your account has been successfully updated.']"));
-
-        Assert.assertTrue(updateMsg.getText().contains("Success"));
+        Tools.successMessageValidation();
     }
 }

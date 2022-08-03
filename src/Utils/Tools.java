@@ -16,7 +16,6 @@ public class Tools {
     public static void successMessageValidation(){
         WebElement msg=GenelWebDriver.driver.findElement(By.cssSelector("[class='alert alert-success alert-dismissible']"));
         Assert.assertTrue(msg.getText().contains("Success"));
-
     }
 
 
