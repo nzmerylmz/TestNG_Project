@@ -30,9 +30,10 @@ public class GenelWebDriver {
         wait=new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30)); // sadece ana sayfa yüklenirken en başta
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); // bütün webElement için geçerli
-        driver.get("http://opencart.abstracta.us/index.php?route=account/login");
-
-        LoginTest();
+        //driver.get("http://opencart.abstracta.us/index.php?route=account/login");
+        driver.get("http://demowebshop.tricentis.com/");
+        driver.manage().window().maximize();
+        //LoginTest();
     }
     @AfterClass
     public void BitisIslemleri(){
@@ -44,14 +45,14 @@ public class GenelWebDriver {
         }
         driver.quit();
     }
-    void LoginTest(){
-        WebElement inputEmail=driver.findElement(By.id("input-email"));
-        inputEmail.sendKeys("adin@gmail.com");
-
-        WebElement password= driver.findElement(By.id("input-password"));
-        password.sendKeys("00000000");
-
-        WebElement loginBtn=driver.findElement(By.cssSelector("input[value='Login']"));
-        loginBtn.click();
-    }
+//    void LoginTest(){
+//        WebElement inputEmail=driver.findElement(By.id("input-email"));
+//        inputEmail.sendKeys("adin@gmail.com");
+//
+//        WebElement password= driver.findElement(By.id("input-password"));
+//        password.sendKeys("00000000");
+//
+//        WebElement loginBtn=driver.findElement(By.cssSelector("input[value='Login']"));
+//        loginBtn.click();
+//    }
 }

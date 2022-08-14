@@ -18,5 +18,9 @@ public class Tools {
         Assert.assertTrue(msg.getText().contains("Success"));
     }
 
+    public static double webElementToDouble(WebElement e){
+        return Double.parseDouble(e.getText().replaceAll("[^\\d]",""));
+    }
+
 
 }
